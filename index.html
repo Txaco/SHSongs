@@ -166,7 +166,7 @@ const APP = (() => {
 
 	};
 
-	SHS.search('object', 'blackbird').then(results => console.log(results));
+	SHS.search('object', 'blackbird').then(results => console.log(results)).catch(error => console.log(error));
 
 })();
 
