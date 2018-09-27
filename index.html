@@ -152,12 +152,6 @@ const APP = (() => {
 
 		},
 
-		retrieve(target, id, options) {
-
-			
-
-		},
-
 		request(uri) {
 
 			return window.fetch(uri).then(response => response.json());
@@ -166,7 +160,7 @@ const APP = (() => {
 
 	};
 
-	SHS.search('work', 'one mint julep').then(results => console.log(results));
+	SHS.search('work', 'blackbird').then(results => console.log(results));
 
 })();
 
