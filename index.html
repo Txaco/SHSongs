@@ -14,7 +14,7 @@ const APP = (() => {
 
 	const defaults = {
 
-		page: 0,
+		page: 1,
 		pageSize: 100,
 		format: 'json'
 
@@ -160,7 +160,7 @@ const APP = (() => {
 
 	};
 
-	SHS.search('object', 'blackbird').then(results => console.log(results)).catch(error => console.log(error));
+	SHS.search('object', 'blackbird').then(results => console.log(results));
 
 })();
 
