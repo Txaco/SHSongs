@@ -154,7 +154,7 @@ const APP = (() => {
 
 		request(uri) {
 
-			return window.fetch(uri).then(response => response.json());
+			return window.fetch(uri, { headers: { Accept: 'application/json' } }).then(response => response.json());
 
 		}
 
