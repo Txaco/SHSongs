@@ -156,10 +156,7 @@ const APP = (() => {
 
 			return window.fetch(uri, {
 				
-				method: 'GET',
-				headers: {
-					'Access-Control-Allow-Origin': '*'
-				}
+				method: 'GET'
 			
 			}).then(response => response.json());
 
