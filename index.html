@@ -153,6 +153,12 @@ const APP = (() => {
 		},
 
 		request(uri) {
+			
+			let options = {
+				headers: {
+					'origin': 'true'
+				}
+			};
 
 			return window.fetch(uri).then(response => response.json()).then(results => console.log(results));
 
