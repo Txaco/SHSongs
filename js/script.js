@@ -28,7 +28,12 @@ const APP = (() => {
 		this.request(uri);
 	};
 	SHS.request = function(uri) {
-		fetch(uri).then(r => r.json()).then(d => console.log(d)).catch(e => console.log(e));
+		let options = {
+			headers: {
+				'Accept': 'application/json'
+			}
+		};
+		fetch(uri, options).then(r => r.json()).then(d => console.log(d)).catch(e => console.log(e));
 	};
 
 	SHS.search('object', 'blackbird');
