@@ -115,7 +115,7 @@ const APP = (() => {
 		},
 		endpoint: 'https://secondhandsongs.com/',
 		search_parameters: {
-			common: [`&page=${defaults.page}`, `&pageSize=${defaults.pageSize}`],
+			common: [`&page=${defaults.page}`, `&pageSize=${defaults.pageSize}`, `&format=${defaults.format}`],
 			work: [`?title=`, `&credits=`],
 			performance: [`?title=`, `&performer=`, `&date=`],
 			artist: [`?commonName=`],
@@ -148,7 +148,7 @@ const APP = (() => {
 
 			let uri = this.endpoint + 'search/' + target + parameters;
 
-			return this.request(uri);
+			this.request(uri);
 
 		},
 
@@ -161,8 +161,9 @@ const APP = (() => {
 				}
 			};
 
-			return window.fetch(uri, options)
-					.then(response => response.json());
+			window.fetch(uri)
+				.then(response => response.json(), error => console.log(error))
+					.then(json_results => console.log(json_results), error => console.log(error));
 
 		}
 
