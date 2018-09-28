@@ -160,7 +160,7 @@ const APP = (() => {
 				}
 			};
 
-			return window.fetch(uri, options).then(response => response.json()).then(results => console.log(results));
+			return window.fetch(uri).then(results => console.log(results));
 
 		}
 
