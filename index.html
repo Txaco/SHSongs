@@ -162,14 +162,14 @@ const APP = (() => {
 			};
 
 			window.fetch(uri)
-				.then(response => response.json(), error => console.log(error))
-					.then(json_results => console.log(json_results), error => console.log(error));
+				.then(response => JSON.parse(response.text()))
+					.then(json_results => console.log(json_results));
 
 		}
 
 	};
 
-	console.log( SHS.search('object', 'blackbird') );
+	SHS.search('object', 'blackbird');
 
 })();
 
