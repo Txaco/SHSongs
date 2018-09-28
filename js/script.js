@@ -27,14 +27,12 @@ const APP = (() => {
 		SHS.request_options = {}; // Fetch request options, including headers
 			SHS.request_options.method = 'GET'; // 'GET' | 'POST' | 'OPTIONS' | 'PUT' | 'DELETE'
 			SHS.request_options.mode = 'same-origin'; // 'cors' | 'no-cors' | 'same-origin'
-			SHS.request_options.credentials = 'same-origin'; // 'omit' | 'same-origin' | 'include'
-			SHS.request_options.referrer = 'client'; // 'no-referrer' | 'client' | '<URL>'
-			SHS.request_options.referrerPolicy = 'origin';
+			//SHS.request_options.credentials = 'same-origin'; // 'omit' | 'same-origin' | 'include'
+			//SHS.request_options.referrer = 'client'; // 'no-referrer' | 'client' | '<URL>'
+			//SHS.request_options.referrerPolicy = 'origin';
 			// 'no-referrer' | 'no-referrer-when-downgrade' | 'origin' | 'origin-when-cross-origin' | 'unsafe-url'
 			// Requets headers		
-			SHS.request_options.headers = new Headers({
-				'Accept': 'application/json',
-			});
+			//SHS.request_options.headers = new Headers({ 'Accept': 'application/json' });
 		// Method - Get search results by entity and input value, with supported options (parameters)
 		SHS.search = function(target, input, options) {
 			let parameters = this.search_params.get_string(target, input, options); // Get parameters
@@ -44,7 +42,7 @@ const APP = (() => {
 		// Method - Fetch URL with request options, parse JSON response and LOG. Catch errors.
 		SHS.request = function(uri) {
 			// Fetch URL
-			fetch(uri);
+			fetch(uri, this.request_options);
 		};
 
 	SHS.search('object', 'blackbird'); // Search for all entities with this value in primary field
