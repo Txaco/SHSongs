@@ -31,7 +31,10 @@ const APP = (() => {
 			SHS.request_options.referrer = 'client'; // 'no-referrer' | 'client' | '<URL>'
 			SHS.request_options.referrerPolicy = 'origin';
 			// 'no-referrer' | 'no-referrer-when-downgrade' | 'origin' | 'origin-when-cross-origin' | 'unsafe-url'
-			SHS.request_options.headers = new Headers({ 'Accept': 'application/json' }); // Requets headers
+			// Requets headers		
+			SHS.request_options.headers = new Headers({
+				'Accept': 'application/json',
+			});
 		// Method - Get search results by entity and input value, with supported options (parameters)
 		SHS.search = function(target, input, options) {
 			let parameters = this.search_params.get_string(target, input, options); // Get parameters
@@ -40,7 +43,12 @@ const APP = (() => {
 		};
 		// Method - Fetch URL with request options, parse JSON response and LOG. Catch errors.
 		SHS.request = function(uri) {
-			fetch(uri).then(r => r.json()).then(d => console.log(d)).catch(e => console.log(e)); // Fetch URL
+			fetch(uri).then(r => {
+				for (var pair of r.headers.entries()) {
+					console.log(pair[0] + ': ' + pair[1]);
+				}
+				return r.json()
+			}).then(d => console.log(d)).catch(e => console.log(e)); // Fetch URL
 		};
 
 	SHS.search('object', 'blackbird'); // Search for all entities with this value in primary field
