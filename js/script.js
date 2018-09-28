@@ -40,7 +40,11 @@ const APP = (() => {
 		};
 		// Method - Fetch URL with request options, parse JSON response and LOG. Catch errors.
 		SHS.request = function(uri) {
-			fetch(uri, this.request_options).then(r => r.json()).then(d => console.log(d)).catch(e => console.log(e)); // Fetch URL
+			fetch('https://musicbrainz.org/ws/2/artist?query=beatles&fmt=json')
+				.then(r => r.json())
+					.then(d => console.log(d))
+						.catch(e => console.log(e));
+			//fetch(uri, this.request_options).then(r => r.json()).then(d => console.log(d)).catch(e => console.log(e)); // Fetch URL
 		};
 
 	SHS.search('object', 'blackbird'); // Search for all entities with this value in primary field
