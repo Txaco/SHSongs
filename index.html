@@ -161,13 +161,14 @@ const APP = (() => {
 				}
 			};
 
-			return window.fetch(uri, options).then(response => response.json()).then(json => console.log(json));
+			return window.fetch(uri, options)
+					.then(response => response.json());
 
 		}
 
 	};
 
-	SHS.search('object', 'blackbird');
+	console.log( SHS.search('object', 'blackbird') );
 
 })();
 
