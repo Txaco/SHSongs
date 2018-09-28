@@ -115,7 +115,7 @@ const APP = (() => {
 		},
 		endpoint: 'https://secondhandsongs.com/',
 		search_parameters: {
-			common: [`&page=${defaults.page}`, `&pageSize=${defaults.pageSize}`, `&format=${defaults.format}`],
+			common: [`&page=${defaults.page}`, `&pageSize=${defaults.pageSize}`],
 			work: [`?title=`, `&credits=`],
 			performance: [`?title=`, `&performer=`, `&date=`],
 			artist: [`?commonName=`],
@@ -154,16 +154,19 @@ const APP = (() => {
 
 		request(uri) {
 			
-			let options = {
-				mode: 'no-cors',
-				headers: {
-					'Accept': 'application/json'
-				}
+			//window.fetch(uri).then(response => response.json()).then(json_results => console.log(json_results));
+
+			let req = new XMLHttpRequest();
+
+			req.onreadystatechange = function() {
+				if(req.readyState !== 4) return;
+				if(req.status >= 200 && req.status < 300) console.log(JSON.parse(req.responseText));
+				else console.log('error', req);
 			};
 
-			window.fetch(uri)
-				.then(response => JSON.parse(response.text()))
-					.then(json_results => console.log(json_results));
+			req.open('GET', uri);
+
+			req.send();
 
 		}
 
