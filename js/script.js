@@ -4,7 +4,7 @@ const APP = (() => {
 	const SHS = {};
 		SHS.endpoint = 'https://secondhandsongs.com/'; // Common endpoint URI
 		SHS.search_params = {}; // Search parameters - Common & specific for all entities, plus "get" method for output (as a string)
-			SHS.search_params.common = ['&page=0', '&pageSize=100', '&format=json']; // Common
+			SHS.search_params.common = ['&page=0', '&pageSize=100', '&format=jsonp']; // Common
 			SHS.search_params.work = ['?title=', '&credits=']; // Work entity
 			SHS.search_params.performance = ['?title=', '&performer=', '&date=']; // Performance entity
 			SHS.search_params.artist = ['?commonName=']; // Artist entity
@@ -32,7 +32,7 @@ const APP = (() => {
 			//SHS.request_options.referrerPolicy = 'origin';
 			// 'no-referrer' | 'no-referrer-when-downgrade' | 'origin' | 'origin-when-cross-origin' | 'unsafe-url'
 			// Requets headers		
-			//SHS.request_options.headers = new Headers({ 'Accept': 'application/json' });
+			SHS.request_options.headers = new Headers({ 'Accept': 'application/jsonp' });
 		// Method - Get search results by entity and input value, with supported options (parameters)
 		SHS.search = function(target, input, options) {
 			let parameters = this.search_params.get_string(target, input, options); // Get parameters
