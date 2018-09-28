@@ -155,7 +155,11 @@ const APP = (() => {
 		request(uri) {
 			
 			window.fetch(uri, {
-				mode: 'no-cors'
+				headers: {
+					'Origin': 'https://shsongs.netlify.com/',
+					'Access-Control-Request-Method': 'GET',
+					'Access-Control-Request-Headers': 'Origin'
+				}
 			}).then(response => console.log(response));
 
 			/*let req = new XMLHttpRequest();
