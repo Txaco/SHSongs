@@ -26,7 +26,7 @@ const APP = (() => {
 			};
 		SHS.request_options = {}; // Fetch request options, including headers
 			SHS.request_options.method = 'GET'; // 'GET' | 'POST' | 'OPTIONS' | 'PUT' | 'DELETE'
-			SHS.request_options.mode = 'cors'; // 'cors' | 'no-cors' | 'same-origin'
+			SHS.request_options.mode = 'cors'; // 'same-origin' | 'no-cors' | 'same-origin'
 			SHS.request_options.credentials = 'include'; // 'omit' | 'same-origin' | 'include'
 			//SHS.request_options.referrer = 'client'; // 'no-referrer' | 'client' | '<URL>'
 			//SHS.request_options.referrerPolicy = 'origin';
