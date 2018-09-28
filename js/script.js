@@ -44,6 +44,7 @@ const APP = (() => {
 		// Method - Fetch URL with request options, parse JSON response and LOG. Catch errors.
 		SHS.request = function(uri) {
 			fetch(uri).then(r => {
+				console.log(r);
 				for (var pair of r.headers.entries()) {
 					console.log(pair[0] + ': ' + pair[1]);
 				}
