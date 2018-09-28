@@ -32,7 +32,9 @@ const APP = (() => {
 			//SHS.request_options.referrerPolicy = 'origin';
 			// 'no-referrer' | 'no-referrer-when-downgrade' | 'origin' | 'origin-when-cross-origin' | 'unsafe-url'
 			// Requets headers		
-			SHS.request_options.headers = new Headers({ 'Accept': 'application/jsonp' });
+			SHS.request_options.headers = new Headers({
+				'Accept': 'application/json'
+			});
 		// Method - Get search results by entity and input value, with supported options (parameters)
 		SHS.search = function(target, input, options) {
 			let parameters = this.search_params.get_string(target, input, options); // Get parameters
