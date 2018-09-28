@@ -43,13 +43,8 @@ const APP = (() => {
 		};
 		// Method - Fetch URL with request options, parse JSON response and LOG. Catch errors.
 		SHS.request = function(uri) {
-			fetch(uri).then(r => {
-				console.log(r);
-				for (var pair of r.headers.entries()) {
-					console.log(pair[0] + ': ' + pair[1]);
-				}
-				return r.json()
-			}).then(d => console.log(d)).catch(e => console.log(e)); // Fetch URL
+			// Fetch URL
+			fetch(uri);
 		};
 
 	SHS.search('object', 'blackbird'); // Search for all entities with this value in primary field
