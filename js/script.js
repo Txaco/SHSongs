@@ -28,7 +28,7 @@ const APP = (() => {
 			SHS.request_options.method = 'GET'; // 'GET' | 'POST' | 'OPTIONS' | 'PUT' | 'DELETE'
 			SHS.request_options.mode = 'cors'; // 'cors' | 'no-cors' | 'same-origin'
 			SHS.request_options.credentials = 'omit'; // 'omit' | 'same-origin' | 'include'
-			SHS.request_options.referrer = 'no-referrer'; // 'no-referrer' | 'client' | '<URL>'
+			SHS.request_options.referrer = ''; // 'no-referrer' | 'client' | '<URL>'
 			// SHS.request_options.referrerPolicy = 'origin';
 			// 'no-referrer' | 'no-referrer-when-downgrade' | 'origin' | 'origin-when-cross-origin' | 'unsafe-url'
 			SHS.request_options.headers = new Headers({ 'Accept': 'application/json' }); // Requets headers
