@@ -155,12 +155,13 @@ const APP = (() => {
 		request(uri) {
 			
 			let options = {
+				mode: 'no-cors',
 				headers: {
-					'origin': 'true'
+					'Accept': 'application/json'
 				}
 			};
 
-			return window.fetch(uri).then(response => response.json()).then(json => console.log(json));
+			return window.fetch(uri, options).then(response => response.json()).then(json => console.log(json));
 
 		}
 
