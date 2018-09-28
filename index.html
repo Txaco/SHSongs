@@ -154,26 +154,10 @@ const APP = (() => {
 
 		request(uri) {
 			
-			window.fetch(uri, {
-				headers: {
-					'Origin': 'https://shsongs.netlify.com/',
-					'Access-Control-Request-Method': 'GET',
-					'Access-Control-Request-Headers': 'Origin'
-				}
-			}).then(response => console.log(response));
-
-			/*let req = new XMLHttpRequest();
-
-			req.onreadystatechange = function() {
-				if(req.readyState !== 4) return;
-				if(req.status >= 200 && req.status < 300) console.log(JSON.parse(req.responseText));
-				else console.log('error', req);
-			};
-
-			req.open('GET', uri);
-
-			req.send();*/
-
+			fetch(uri).then(r => r.json())
+				.then(d => console.log(d))
+					.catch(e => console.log('FETCH ERROR !!!', e));
+			
 		}
 
 	};
