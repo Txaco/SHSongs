@@ -154,9 +154,11 @@ const APP = (() => {
 
 		request(uri) {
 			
-			//window.fetch(uri).then(response => response.json()).then(json_results => console.log(json_results));
+			window.fetch(uri, {
+				mode: 'no-cors'
+			}).then(response => response.json()).then(json_results => console.log(json_results));
 
-			let req = new XMLHttpRequest();
+			/*let req = new XMLHttpRequest();
 
 			req.onreadystatechange = function() {
 				if(req.readyState !== 4) return;
@@ -166,7 +168,7 @@ const APP = (() => {
 
 			req.open('GET', uri);
 
-			req.send();
+			req.send();*/
 
 		}
 
