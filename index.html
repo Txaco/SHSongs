@@ -154,9 +154,7 @@ const APP = (() => {
 
 		request(uri) {
 			
-			fetch(uri).then(r => r.json())
-				.then(d => console.log(d))
-					.catch(e => console.log('FETCH ERROR !!!', e));
+			fetch(uri).then(r => r.json()).then(d => console.log(d)).catch(e => console.log(e));
 			
 		}
 
