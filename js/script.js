@@ -66,9 +66,10 @@ const APP = (() => {
 			};
 			req.open('GET', uri, true);
 			req.setRequestHeader('Accept', 'application/json');
-			req.withCredentials = true;
+			req.setRequeatHeader('Origin', 'https://secondhandsongs.com/');
+			//req.withCredentials = true;
 			console.log(req);
-			req.send();
+			req.send('');
 		}
 		SHS.callback = function(req) { console.log(req); };
 
