@@ -2,7 +2,7 @@ const APP = (() => {
 
 	// SecondHandSongs API Wrapper
 	const SHS = {};
-		SHS.endpoint = 'http://secondhandsongs.com/'; // Common endpoint URI
+		SHS.endpoint = 'https://secondhandsongs.com/'; // Common endpoint URI
 		SHS.search_params = {}; // Search parameters - Common & specific for all entities, plus "get" method for output (as a string)
 			SHS.search_params.common = ['&page=0', '&pageSize=100', '&format=json']; // Common
 			SHS.search_params.work = ['?title=', '&credits=']; // Work entity
@@ -54,6 +54,7 @@ const APP = (() => {
 			};
 			req.open('GET', uri, true);
 			req.setRequestHeader('Accept', 'application/json');
+			console.log(req);
 			req.send();
 		}
 		SHS.callback = function(req) { console.log(req); };
