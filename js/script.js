@@ -66,7 +66,7 @@ const APP = (() => {
 			};
 			req.open('GET', uri, true);
 			req.setRequestHeader('Accept', 'application/json');
-			req.setRequeatHeader('Origin', 'https://secondhandsongs.com/');
+			req.setRequestHeader('Origin', 'https://secondhandsongs.com/');
 			//req.withCredentials = true;
 			console.log(req);
 			req.send('');
