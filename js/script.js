@@ -37,13 +37,26 @@ const APP = (() => {
 		SHS.search = function(target, input, options) {
 			let parameters = this.search_params.get_string(target, input, options); // Get parameters
 			let uri = this.endpoint + 'search/' + target + parameters; // Build request URL
-			this.request(uri); // Fetch URL
+			this.ajax_request(uri); // Fetch URL
 		};
 		// Method - Fetch URL with request options, parse JSON response and LOG. Catch errors.
 		SHS.request = function(uri) {
 			// Fetch URL
 			fetch(uri, this.request_options);
 		};
+		// Method - AJAX request with callback function
+		SHS.ajax_request = function(uri, callback) {
+			let req = new XMLHttpRequest();
+			req.onreadystatechange = function() {
+				if(req.readyState < 4) return;
+				if(req.status !== 200) return;
+				if(req.readyState === 4) callback(req);
+			};
+			req.open('GET', uri, true);
+			req.setRequestHeader('Accept', 'application/json');
+			req.send();
+		}
+		SHS.callback = function(req) { console.log(req); };
 
 	SHS.search('object', 'blackbird'); // Search for all entities with this value in primary field
 
