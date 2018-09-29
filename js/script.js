@@ -52,6 +52,27 @@ const APP = (() => {
 				if(req.status !== 200) return;
 				if(req.readyState === 4) callback(req);
 			};
+			req.onabort = function(evt) {
+				console.log(evt);
+			};
+			req.onerror = function(evt) {
+				console.log(evt);
+			};
+			req.onload = function(evt) {
+				console.log(evt);
+			};
+			req.onloadend = function(evt) {
+				console.log(evt);
+			};
+			req.onloadstart = function(evt) {
+				console.log(evt);
+			};
+			req.onprogress = function(evt) {
+				console.log(evt);
+			};
+			req.ontimeout = function(evt) {
+				console.log(evt);
+			};
 			req.open('GET', uri, true);
 			req.setRequestHeader('Accept', 'application/json');
 			console.log(req);
