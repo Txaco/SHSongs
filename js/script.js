@@ -2,7 +2,7 @@ const APP = (() => {
 
 	// SecondHandSongs API Wrapper
 	const SHS = {};
-		SHS.endpoint = 'https://secondhandsongs.com/'; // Common endpoint URI
+		SHS.endpoint = 'http://secondhandsongs.com/'; // Common endpoint URI
 		SHS.search_params = {}; // Search parameters - Common & specific for all entities, plus "get" method for output (as a string)
 			SHS.search_params.common = ['&page=0', '&pageSize=100', '&format=json']; // Common
 			SHS.search_params.work = ['?title=', '&credits=']; // Work entity
