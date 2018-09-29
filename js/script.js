@@ -2,6 +2,7 @@ const APP = (() => {
 
 	// SecondHandSongs API Wrapper
 	const SHS = {};
+		SHS.proxy = 'https://crossorigin.me/';
 		SHS.endpoint = 'https://secondhandsongs.com/'; // Common endpoint URI
 		SHS.search_params = {}; // Search parameters - Common & specific for all entities, plus "get" method for output (as a string)
 			SHS.search_params.common = ['&page=0', '&pageSize=100', '&format=json']; // Common
@@ -26,7 +27,7 @@ const APP = (() => {
 			};
 		SHS.request_options = {}; // Fetch request options, including headers
 			//SHS.request_options.method = 'GET'; // 'GET' | 'POST' | 'OPTIONS' | 'PUT' | 'DELETE'
-			SHS.request_options.mode = 'no-cors'; // 'cors' | 'no-cors' | 'same-origin'
+			//SHS.request_options.mode = 'no-cors'; // 'cors' | 'no-cors' | 'same-origin'
 			//SHS.request_options.credentials = 'include'; // 'omit' | 'same-origin' | 'include'
 			//SHS.request_options.referrer = 'client'; // 'no-referrer' | 'client' | '<URL>'
 			//SHS.request_options.referrerPolicy = 'origin';
@@ -36,13 +37,13 @@ const APP = (() => {
 		// Method - Get search results by entity and input value, with supported options (parameters)
 		SHS.search = function(target, input, options) {
 			let parameters = this.search_params.get_string(target, input, options); // Get parameters
-			let uri = this.endpoint + 'search/' + target + parameters; // Build request URL
-			this.ajax_request(uri); // Fetch URL
+			let uri = this.proxy + this.endpoint + 'search/' + target + parameters; // Build request URL
+			this.fetch_request(uri); // Fetch URL
 		};
 		// Method - Fetch URL with request options, parse JSON response and LOG. Catch errors.
-		SHS.request = function(uri) {
+		SHS.fetch_request = function(uri) {
 			// Fetch URL
-			fetch(uri, this.request_options);
+			fetch(uri, this.request_options).then(r=>r.json()).then(j=>console.log(j));
 		};
 		// Method - AJAX request with callback function
 		SHS.ajax_request = function(uri, callback) {
