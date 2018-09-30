@@ -46,30 +46,21 @@ const APP = (() => {
 			fetch(uri, this.request_options).then(r=>r.json()).then(j=>console.log(j));
 		};
 		// Method - AJAX request with callback function
-		SHS.ajax_request = function(uri, callback) {
+		SHS.ajax_request = function(uri, callback = this.callback) {
 			let req = new XMLHttpRequest();
 			req.onreadystatechange = function() {
 				if(req.readyState < 4) return;
 				if(req.status !== 200) return;
 				if(req.readyState === 4) callback(req);
 			};
-			req.onerror = function(evt) {
-				console.log(evt);
-			};
-			req.onload = function(evt) {
-				console.log(evt);
-			};
-			req.onloadend = function(evt) {
-				console.log(evt);
-			};
-			req.onloadstart = function(evt) {
-				console.log(evt);
-			};
+			//req.onerror = function(evt) { console.log(evt); };
+			//req.onload = function(evt) { console.log(evt); };
+			//req.onloadend = function(evt) { console.log(evt); };
+			//req.onloadstart = function(evt) { console.log(evt); };
 			req.open('GET', uri, true);
 			req.setRequestHeader('Accept', 'application/json');
-			req.setRequestHeader('Content-Type', 'application/json');
+			//req.setRequestHeader('Content-Type', 'application/json');
 			//req.withCredentials = true;
-			console.log(req);
 			req.send('');
 		}
 		SHS.callback = function(req) { console.log(req); };
