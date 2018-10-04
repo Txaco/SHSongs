@@ -2,7 +2,6 @@ const APP = (() => {
 
 	// SecondHandSongs API Wrapper
 	const SHS = {};
-		SHS.proxy = 'https://cors-anywhere.herokuapp.com/';
 		SHS.endpoint = 'https://secondhandsongs.com/'; // Common endpoint URI
 		SHS.search_params = {}; // Search parameters - Common & specific for all entities, plus "get" method for output (as a string)
 			SHS.search_params.common = ['&page=0', '&pageSize=100', '&format=json']; // Common
@@ -37,7 +36,7 @@ const APP = (() => {
 		// Method - Get search results by entity and input value, with supported options (parameters)
 		SHS.search = function(target, input, options) {
 			let parameters = this.search_params.get_string(target, input, options); // Get parameters
-			let uri = this.proxy + this.endpoint + 'search/' + target + parameters; // Build request URL
+			let uri = this.endpoint + 'search/' + target + parameters; // Build request URL
 			this.fetch_request(uri); // Fetch URL
 		};
 		// Method - Fetch URL with request options, parse JSON response and LOG. Catch errors.
